@@ -175,27 +175,6 @@ The model used for prediction is **[Model name, e.g. Random Forest Classifier]**
 
 ---
 
-## 📈 Model Evaluation
-
-The model was evaluated using the following metrics:
-
-* **Accuracy Score**
-* **Confusion Matrix**
-* **Classification Report** (Precision, Recall, F1-score)
-* **ROC-AUC Score**
-
-| Metric | Score |
-| --- | --- |
-| Accuracy | [your value] |
-| Precision | [your value] |
-| Recall | [your value] |
-| F1-score | [your value] |
-| ROC-AUC | [your value] |
-
-Because the dataset is imbalanced, **recall** for the Bad class and **ROC-AUC** are more meaningful than accuracy alone.
-
----
-
 ## 📋 Input Features
 
 The web application accepts the following applicant details:
