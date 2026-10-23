@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Risk Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0d47a1, #000000, #6a1b9a);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0d47a1, #000000, #6a1b9a);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        h1 {
+            color: #ffd54f;
+            text-align: center;
+            margin-top: 0;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #ddd;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 20px;
+        }
+        .field label {
+            display: block;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ffd54f;
+            box-shadow: 0 0 5px #ffd54f;
+        }
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background: linear-gradient(90deg, #6a1b9a, #0d47a1, #000000);
+            color: #fff;
+            border: 1px solid #ffd54f;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.85;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(90deg, #6a1b9a, #0d47a1);
+            border: 2px solid #ffd54f;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Risk Prediction</h1>
+        <p class="subtitle">Enter the applicant details below</p>
+
+        <form method="post">
+            <div class="grid">
+                <div class="field">
+                    <label>Age</label>
+                    <input type="number" step="any" min="18" max="100" name="Age" required>
+                </div>
+                <div class="field">
+                    <label>Open Credit Lines and Loans</label>
+                    <input type="number" step="any" min="0" max="100" name="NumberOfOpenCreditLinesAndLoans" required>
+                </div>
+                <div class="field">
+                    <label>Real Estate Loans or Lines</label>
+                    <input type="number" step="any" min="0" max="50" name="NumberRealEstateLoansOrLines" required>
+                </div>
+                <div class="field">
+                    <label>Monthly Income</label>
+                    <input type="number" step="any" min="0" name="MonthlyIncome_replaced" required>
+                </div>
+                <div class="field">
+                    <label>Gender: Male</label>
+                    <input type="number" min="0" max="1" name="Gender_Male" required>
+                </div>
+                <div class="field">
+                    <label>Region: East</label>
+                    <input type="number" min="0" max="1" name="Region_East" required>
+                </div>
+                <div class="field">
+                    <label>Region: North</label>
+                    <input type="number" min="0" max="1" name="Region_North" required>
+                </div>
+                <div class="field">
+                    <label>Region: South</label>
+                    <input type="number" min="0" max="1" name="Region_South" required>
+                </div>
+                <div class="field">
+                    <label>Region: West</label>
+                    <input type="number" min="0" max="1" name="Region_West" required>
+                </div>
+                <div class="field">
+                    <label>Rented / Own House (encoded)</label>
+                    <input type="number" step="any" min="0" max="1" name="Rented_OwnHouse_con" required>
+                </div>
+                <div class="field">
+                    <label>Occupation (encoded)</label>
+                    <input type="number" step="any" min="0" max="4" name="Occupation_con" required>
+                </div>
+                <div class="field">
+                    <label>Education (encoded)</label>
+                    <input type="number" step="any" min="0" max="4" name="Education_con" required>
+                </div>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
